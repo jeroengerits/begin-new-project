@@ -35,7 +35,8 @@
   "engineStrict": true,
   "files": [
     "/bin",
-    "/lib"
+    "/lib",
+    "/templates"
   ],
   "oclif": {
     "bin": "begin-new-project"
