@@ -18,7 +18,7 @@ $ npm install -g begin-new-project
 $ begin-new-project COMMAND
 running command...
 $ begin-new-project (-v|--version|version)
-begin-new-project/0.0.18 linux-x64 node-v14.15.4
+begin-new-project/0.0.20 linux-x64 node-v14.15.4
 $ begin-new-project --help [COMMAND]
 USAGE
   $ begin-new-project COMMAND
