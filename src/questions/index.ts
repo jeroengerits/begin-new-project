@@ -1,5 +1,5 @@
-import AskProjectName from './project-name'
-import SelectTemplate from './template-name'
-import SelectTemplateProvider from './template-provider'
+import AskProjectName from './ask-project-name'
+import SelectTemplateSource from './select-template-source'
+import SelectTemplateProvider from './select-template-provider'
 
-export { AskProjectName, SelectTemplate, SelectTemplateProvider }
+export { AskProjectName, SelectTemplateSource, SelectTemplateProvider }

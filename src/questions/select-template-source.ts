@@ -1,6 +1,6 @@
 import * as fs from 'fs-extra'
 
-const TemplateName = (path: string) => {
+const SelectTemplateSource = (path: string) => {
   return {
     name: 'template-name',
     message: 'select a template',
@@ -11,4 +11,4 @@ const TemplateName = (path: string) => {
   }
 }
 
-export default TemplateName
+export default SelectTemplateSource

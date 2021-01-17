@@ -3,7 +3,7 @@ import * as inquirer from 'inquirer'
 import * as fs from 'fs-extra'
 import {
   AskProjectName,
-  SelectTemplate,
+  SelectTemplateSource,
   SelectTemplateProvider,
 } from './questions'
 
@@ -17,7 +17,7 @@ class BeginNewProject extends Command {
     switch (initAnswers['template-provider']) {
       case 'default':
         const secondAnswers = await inquirer.prompt([
-          SelectTemplate(`${__dirname}/../templates`),
+          SelectTemplateSource(`${__dirname}/../templates`),
         ])
 
         const projectPath = `${process.cwd()}/${initAnswers['project-name']}`

@@ -1,4 +1,4 @@
-const ProjectName = () => {
+const AskProjectName = () => {
   return {
     name: 'project-name',
     message: 'what is the project name?',
@@ -10,4 +10,4 @@ const ProjectName = () => {
   }
 }
 
-export default ProjectName
+export default AskProjectName
