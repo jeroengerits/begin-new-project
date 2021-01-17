@@ -24,8 +24,6 @@ const webpackConfig = (
     ...(env.production || !env.development ? {} : {devtool: "eval-source-map"}),
     resolve: {
         extensions: [".ts", ".tsx", ".js"],
-        //TODO waiting on https://github.com/dividab/tsconfig-paths-webpack-plugin/issues/61
-        //@ts-ignore
         plugins: [new TsconfigPathsPlugin()]
     },
     output: {
@@ -57,7 +55,7 @@ const webpackConfig = (
         }),
         new ForkTsCheckerWebpackPlugin({
             eslint: {
-                files: "./src/**/*.{ts,tsx,js,jsx}" // required - same as command `eslint ./src/**/*.{ts,tsx,js,jsx} --ext .ts,.tsx,.js,.jsx`
+                files: "./src/**/*.{ts,tsx,js,jsx}"
             }
         })
     ]
