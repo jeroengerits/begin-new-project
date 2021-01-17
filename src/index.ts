@@ -1,24 +1,22 @@
 import Command from '@oclif/command'
 import * as inquirer from 'inquirer'
 import * as fs from 'fs-extra'
-import AskProjectName from './questions/ask-project-name'
-import AskTemplateProvider from './questions/ask-template-provider'
-import AskTemplate from './questions/ask-template'
+import {ProjectName, TemplateName, TemplateProvider} from "./questions";
 
 class BeginNewProject extends Command {
   async run() {
     const initAsked = await inquirer.prompt([
-      AskProjectName(),
-      AskTemplateProvider(),
+      ProjectName(),
+      TemplateProvider(),
     ])
 
     switch (initAsked['template-provider']) {
       case 'default':
         const templatesPath = `${__dirname}/../templates`
         const templateAsked = await inquirer.prompt([
-          AskTemplate(templatesPath),
+          TemplateName(templatesPath),
         ])
-        const templatePath = `${__dirname}/../templates/${templateAsked['template']}`
+        const templatePath = `${__dirname}/../templates/${templateAsked['template-name']}`
         const projectPath = `${process.cwd()}/${initAsked['project-name']}`
         fs.ensureDir(projectPath)
           .then(() => {

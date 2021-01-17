@@ -1,8 +1,8 @@
 import * as fs from 'fs-extra'
 
-const AskTemplate = (path: string) => {
+const TemplateName = (path: string) => {
   return {
-    name: 'template',
+    name: 'template-name',
     message: 'select a template',
     type: 'list',
     choices: fs.readdirSync(path).map((item) => {
@@ -11,4 +11,4 @@ const AskTemplate = (path: string) => {
   }
 }
 
-export default AskTemplate
+export default TemplateName

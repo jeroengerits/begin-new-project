@@ -1,4 +1,4 @@
-const AskTemplateProvider = () => {
+const TemplateProvider = () => {
   return {
     name: 'template-provider',
     message: 'select a provider',
@@ -7,4 +7,4 @@ const AskTemplateProvider = () => {
   }
 }
 
-export default AskTemplateProvider
+export default TemplateProvider
