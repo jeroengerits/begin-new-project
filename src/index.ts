@@ -1,32 +1,36 @@
 import Command from '@oclif/command'
 import * as inquirer from 'inquirer'
 import * as fs from 'fs-extra'
-import {ProjectName, TemplateName, TemplateProvider} from "./questions";
+import {AskProjectName, SelectTemplate, SelectTemplateProvider} from './questions'
 
 class BeginNewProject extends Command {
   async run() {
-    const initAsked = await inquirer.prompt([
-      ProjectName(),
-      TemplateProvider(),
+
+    const initAnswers = await inquirer.prompt([
+      AskProjectName(),
+      SelectTemplateProvider()
     ])
 
-    switch (initAsked['template-provider']) {
+    switch (initAnswers['template-provider']) {
+
       case 'default':
-        const templatesPath = `${__dirname}/../templates`
-        const templateAsked = await inquirer.prompt([
-          TemplateName(templatesPath),
+
+        const secondAnswers = await inquirer.prompt([
+          SelectTemplate(`${__dirname}/../templates`),
         ])
-        const templatePath = `${__dirname}/../templates/${templateAsked['template-name']}`
-        const projectPath = `${process.cwd()}/${initAsked['project-name']}`
+
+        const projectPath = `${process.cwd()}/${initAnswers['project-name']}`
+
         fs.ensureDir(projectPath)
           .then(() => {
-            fs.copy(templatePath, projectPath)
+            fs.copy(`${__dirname}/../templates/${secondAnswers['template-name']}`, projectPath)
               .then(() => console.log(`\n ✌️`))
               .catch((err) => console.error(err))
           })
           .catch((err) => {
             console.error(err)
           })
+
     }
   }
 }
