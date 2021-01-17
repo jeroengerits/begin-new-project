@@ -1,40 +1,35 @@
 import Command from '@oclif/command'
 import * as inquirer from 'inquirer'
 import * as fs from 'fs-extra'
+import AskProjectName from './questions/ask-project-name'
+import AskTemplateProvider from './questions/ask-template-provider'
+import AskTemplate from './questions/ask-template'
 
 class BeginNewProject extends Command {
   async run() {
-    const questions = [
-      {
-        name: 'template',
-        message: 'select a template',
-        type: 'list',
-        choices: fs.readdirSync(`${__dirname}/../templates`).map((item) => {
-          return { name: item }
-        }),
-      },
-      {
-        name: 'project',
-        message: 'project name',
-        validate: (input: string) => {
-          if (/^([A-Za-z\-\_\d])+$/.test(input)) return true
-          else
-            return 'Project name may only include letters, numbers, underscores and hashes.'
-        },
-      },
-    ]
-    const answers = await inquirer.prompt(questions)
-    const templatePath = `${__dirname}/../templates/${answers['template']}`
-    const projectPath = `${process.cwd()}/${answers['project']}`
-    fs.ensureDir(projectPath)
-      .then(() => {
-        fs.copy(templatePath, projectPath)
-          .then(() => console.log(`\n ✌️`))
-          .catch((err) => console.error(err))
-      })
-      .catch((err) => {
-        console.error(err)
-      })
+    const initAsked = await inquirer.prompt([
+      AskProjectName(),
+      AskTemplateProvider(),
+    ])
+
+    switch (initAsked['template-provider']) {
+      case 'default':
+        const templatesPath = `${__dirname}/../templates`
+        const templateAsked = await inquirer.prompt([
+          AskTemplate(templatesPath),
+        ])
+        const templatePath = `${__dirname}/../templates/${templateAsked['template']}`
+        const projectPath = `${process.cwd()}/${initAsked['project-name']}`
+        fs.ensureDir(projectPath)
+          .then(() => {
+            fs.copy(templatePath, projectPath)
+              .then(() => console.log(`\n ✌️`))
+              .catch((err) => console.error(err))
+          })
+          .catch((err) => {
+            console.error(err)
+          })
+    }
   }
 }
 
