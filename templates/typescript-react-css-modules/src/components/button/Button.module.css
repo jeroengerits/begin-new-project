@@ -1,0 +1,36 @@
+.button,
+.buttonWithIcon {
+  display: block;
+  padding: var(--space-medium) var(--space-large);
+  color: var(--color-gray4);
+  font-weight: var(--font-weight-bold);
+  outline: none;
+  font-size: var(--font-size-medium);
+  background-color: var(--color-success);
+  border: var(--space-extra-small) solid var(--color-success);
+  border-radius: var(--space-small);
+  box-shadow: 0 0 var(--space-medium) var(--color-gray3);
+  cursor: pointer;
+  transition: var(--transition-default);
+}
+
+.button:hover,
+.buttonWithIcon:hover {
+  border: var(--space-extra-small) solid var(--color-accent2);
+  transform: scale(1.05);
+}
+
+.button:active,
+.buttonWithIcon:active {
+  border: var(--space-extra-small) solid var(--color-gray1);
+  transform: scale(0.98);
+}
+
+.buttonWithIcon {
+  display: flex;
+  align-items: center;
+}
+
+.buttonWithIcon :first-child {
+  margin-right: 0.75rem;
+}

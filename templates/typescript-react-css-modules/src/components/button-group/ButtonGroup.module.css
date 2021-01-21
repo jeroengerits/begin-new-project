@@ -1,0 +1,7 @@
+.buttonGroup {
+  display: flex;
+}
+
+.buttonGroup > * {
+  margin: 0 var(--space-extra-small);
+}

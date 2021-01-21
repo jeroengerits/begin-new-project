@@ -1,0 +1,21 @@
+:root {
+  /* Mono */
+  --color-black: gray(0);
+  --color-white: gray(255);
+  --color-transparent: #00000000;
+  /* Brand */
+  --color-primary: #bd93f9;
+  --color-secondary: #6272a4;
+  --color-accent1: #f1fa8c;
+  --color-accent2: #ff79c6;
+  /* Grays */
+  --color-gray1: #f8f8f2;
+  --color-gray2: #44475a;
+  --color-gray3: #282a36;
+  --color-gray4: #212020;
+  /* UI */
+  --color-success: #50fa7b;
+  --color-error: #ff5555;
+  --color-warning: #ffb86c;
+  --color-info: #8be9fd;
+}
