@@ -1,12 +1,12 @@
-import React, { FunctionComponent, ReactNode } from "react";
-import styles from "./Button.module.css";
+import React, { FunctionComponent, ReactNode } from 'react'
+import styles from './Button.module.css'
 
 export interface ButtonProperties {
-  icon?: ReactNode;
-  children: ReactNode;
+  icon?: ReactNode
+  children: ReactNode
 }
 
-type Properties = ButtonProperties;
+type Properties = ButtonProperties
 
 const Button: FunctionComponent<Properties> = ({
   icon,
@@ -16,6 +16,6 @@ const Button: FunctionComponent<Properties> = ({
     {icon}
     {children}
   </button>
-);
+)
 
-export default Button;
+export default Button

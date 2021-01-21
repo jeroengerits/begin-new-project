@@ -1,13 +1,13 @@
-import React, { FunctionComponent, ReactNode } from "react";
-import styles from "./Container.module.css";
+import React, { FunctionComponent, ReactNode } from 'react'
+import styles from './Container.module.css'
 
 export interface ContainerProperties {
-  maxWidth?: string;
-  isCentered?: boolean;
-  children: ReactNode;
+  maxWidth?: string
+  isCentered?: boolean
+  children: ReactNode
 }
 
-type Properties = ContainerProperties;
+type Properties = ContainerProperties
 
 const Container: FunctionComponent<Properties> = ({
   maxWidth,
@@ -19,13 +19,12 @@ const Container: FunctionComponent<Properties> = ({
     className={
       (styles.container,
       isCentered ? styles.centeredContainer : styles.container)
-    }
-  >
+    }>
     {children}
   </div>
-);
+)
 
-export default Container;
+export default Container
 
 // /* Button.css */
 // .button {

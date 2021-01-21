@@ -1,14 +1,14 @@
-import React, { FunctionComponent, ReactNode } from "react";
-import styles from "./DefaultLayout.module.css";
+import React, { FunctionComponent, ReactNode } from 'react'
+import styles from './DefaultLayout.module.css'
 
 export interface DefaultLayoutProperties {
-  children: ReactNode;
+  children: ReactNode
 }
 
-type Properties = DefaultLayoutProperties;
+type Properties = DefaultLayoutProperties
 
 const DefaultLayout: FunctionComponent<Properties> = ({
   children,
-}: Properties) => <div className={styles.defaultLayout}>{children}</div>;
+}: Properties) => <div className={styles.defaultLayout}>{children}</div>
 
-export default DefaultLayout;
+export default DefaultLayout

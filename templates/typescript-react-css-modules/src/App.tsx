@@ -1,10 +1,10 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
-import Button from "./components/button/Button";
-import DefaultLayout from "./layouts/Default/DefaultLayout";
-import Container from "./components/container";
-import { PhoneCall } from "react-feather";
-import Center from "./components/center";
+import Button from './components/button/Button'
+import DefaultLayout from './layouts/Default/DefaultLayout'
+import Container from './components/container'
+import { PhoneCall } from 'react-feather'
+import Center from './components/center'
 
 const App: FC = () => (
   <DefaultLayout>
@@ -15,6 +15,6 @@ const App: FC = () => (
       </Center>
     </Container>
   </DefaultLayout>
-);
+)
 
-export default App;
+export default App
